@@ -1,0 +1,8 @@
+This is basically TCP Reno with no slow start and a much more
+aggressive ssthresh recalculation (lowers it by 5% instead of 50%).
+Use responsibly!
+
+To use:
+$ make
+$ sudo insmod tcp_sociopath.ko
+$ sudo echo "sociopath" > /proc/sys/net/ipv4/tcp_congestion_control
