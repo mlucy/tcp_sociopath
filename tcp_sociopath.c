@@ -19,7 +19,7 @@ static u32 tcp_sociopath_min_cwnd(const struct sock *sk) {
 static void tcp_sociopath_cong_avoid(struct sock *sk, u32 ack, u32 in_flight) {
   struct tcp_sock *tp = tcp_sk(sk);
   if (tp->snd_cwnd <= tp->snd_ssthresh) {
-    if (tp->snd_cwnd < 100) tp->snd_cwnd = lambda*10;
+    if (tp->snd_cwnd < lambda*10) tp->snd_cwnd = lambda*10;
     tcp_reno_cong_avoid(sk, ack, in_flight);
   } else {
     tcp_reno_cong_avoid(sk, ack, in_flight);
